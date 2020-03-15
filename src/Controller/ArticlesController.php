@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+
 use App\Entity\Article;
 use App\Repository\EcommerceRepository;
 use Symfony\Component\HttpFoudation\Response;
@@ -12,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
 
 
 class ArticlesController extends AbstractController
@@ -55,17 +55,17 @@ class ArticlesController extends AbstractController
 	}
 
 	/**
-	* @Route("/articles/{id}/edit")
+	* @Route("/articles/{id}/edit", methods={"GET", "POST"})
 	*/
 
-	public function edit($id){
+	public function edit($id)
+	{
 		$em = $this->container->get('doctrine')->getManager();	
 
 	$repo = $em->getRepository('App\Entity\Ecommerce');
 	
 
 	$articles = $repo->find($id);
-
 
 	$form = $this->createFormBuilder($articles)
 	->add('name', TextType::class)
@@ -75,8 +75,8 @@ class ArticlesController extends AbstractController
 	->getForm();
 
 
-		return $this->render('articles/edit.html.twig',
-		[ 'articles' =>$articles, 'form' => $form->createView()
+	
+		return $this->render('articles/edit.html.twig',[ 'articles' =>$articles, 'form' => $form->createView()
 		]);
 
 	}
