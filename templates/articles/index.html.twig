@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block body %}
+
+<h1 class="text-center h2 mt-5">Articles</h1>
+
+{% set var = 1 %}
+<div class="list-group list-group-flush">
+{%for article in articles %}
+
+  <a href="/articles/{{ var + 1}}" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ article.name }} </h5>
+
+      <p> <span class="badge badge-success"> {{article.price}} $  </span></p>
+    </div>
+    <p class="mb-1 text-muted">{{ article.description }}</p></small>
+  </a>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
