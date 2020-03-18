@@ -26,6 +26,21 @@ class Ecommerce
      */
     private $description;
 
+
+public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId(string $id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
+
    
     public function getName(): ?string
     {
@@ -71,4 +86,40 @@ class Ecommerce
  * @ORM\GeneratedValue(strategy="AUTO")
  */
 private $id;
+
+/**
+ * @ORM\Column(type="string")
+ */
+private $image_file;
+
+/**
+ * @ORM\Column(type="integer")
+ */
+private $capacity;
+
+
+
+public function getCapacity(): ?int
+{
+    return $this->capacity;
+}
+
+public function setCapacity(int $capacity): self
+{
+    $this->capacity = $capacity;
+
+    return $this;
+}
+
+public function getImageFile(): ?string
+{
+    return $this->image_file;
+}
+
+public function setImageFile( string $image_file): self
+{
+    $this->image_file = $image_file;
+
+    return $this;
+}
 }

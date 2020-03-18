@@ -5,10 +5,28 @@
 
 <div class="row">
 <div class "col-md-6 mx-auto">
+	
 	<h1 class="mt-5 h2 font-weight-light">{{articles.name}}</h1>
+
+<img src="/images/{{ articles.id}}.jpg" 
+ 	  style="border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  width: 500px;
+  border: none;
+  "
+
+ 	   >
+
+
 	<h2 class="h2 badge badge-success">{{articles.price}} euros</h2>
+	
 	<p>{{ articles.description}}</p>
+
+	<a href ="2/edit">edier l'article</a>
+
 	<p><a href ="/articles">&larr; Retour</a></p>
+
 </div>
 </div>
 
