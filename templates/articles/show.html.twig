@@ -3,6 +3,9 @@
 {% block body %}
 
 
+	
+
+
 <div class="row">
 <div class "col-md-6 mx-auto">
 	
@@ -21,13 +24,23 @@
 
 	<h2 class="h2 badge badge-success">{{articles.price}} euros</h2>
 	
+	
 	<p>{{ articles.description}}</p>
 
-	<a href ="2/edit">edier l'article</a>
+	<a href ="{{articles.id}}/edit">edier l'article</a>
 
 	<p><a href ="/articles">&larr; Retour</a></p>
+	<a href ="/articles/{{ articles.id }}/achat">
+	<button type="button" class="btn btn-primary btn-lg btn-block">Acheter</button>
+	</a>	
+
 
 </div>
 </div>
+
+
+</script>
+
 
 {% endblock %}
+

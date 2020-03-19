@@ -1,0 +1,146 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block body %}
+
+
+<div class="card text-center">
+  <div class="card-header">
+    Récapitulatif de votre Achat
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"> 1 {{ articles.name }}</h5>
+    <p class="card-text">Merci d'avoir choisi Ecommerce pour l'achat de votre {{ articles.name }}</p>
+    
+
+<img src="/images/{{ articles.id}}.jpg" 
+ 	  style="border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  width: 400px;
+  border: none;
+  "
+
+ 	   >
+
+  </div>
+  <div class="card-footer text-muted">
+   
+
+
+
+<form class="needs-validation" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom01">nom</label>
+      <input type="text" class="form-control" id="validationCustom01" value="" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback">
+          Please choose a nom.
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom02">prénom</label>
+      <input type="text" class="form-control" id="validationCustom02" value="" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+      <div class="invalid-feedback">
+          Please choose a prénom.
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustomUsername">email</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroupPrepend">@</span>
+        </div>
+        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+        <div class="invalid-feedback">
+          Please choose a email.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationCustom03">adresse</label>
+      <input type="text" class="form-control" id="validationCustom03" required>
+      <div class="invalid-feedback">
+        Please provide a valid adresse.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom05">code postale</label>
+      <input type="text" class="form-control" id="validationCustom05" required>
+      <div class="invalid-feedback">
+        Please provide a valid code postale.
+      </div>
+    </div>
+  </div>
+    
+  <div class="form-group">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
+
+
+
+
+  </div>
+</div>
+
+
+<div>
+<script style="margin: 100px auto;" src="https://www.paypal.com/sdk/js?client-id=sb"></script>
+<script>paypal.Buttons().render('body');</script>
+</div>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

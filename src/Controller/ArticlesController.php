@@ -81,6 +81,7 @@ class ArticlesController extends AbstractController
 
 	if ( $form->isSubmitted() && $form->isValid()){
 		$em->flush();
+		$this->addFlash('success', 'Article modifié avec succès :)');
 
 		return $this->redirect('/articles');
 	}
@@ -105,6 +106,8 @@ class ArticlesController extends AbstractController
 	->add('name', TextType::class)
 	->add('price', NumberType::class)
 	->add('description', TextareaType::class, ['attr' =>['rows'=> 10]])
+	
+	->add('image_file')
 	->add('Submit', SubmitType::class)
 	->getForm();
 
@@ -122,6 +125,23 @@ class ArticlesController extends AbstractController
 		  'form' => $form->createView()
 		]);
 	}
+
+	/**
+	* @Route("/articles/{id}/achat")
+	*/
+
+	public function achat($id){
+		
+		$em = $this->container->get('doctrine')->getManager();	
+
+	$repo = $em->getRepository('App\Entity\Ecommerce');
+	$articles = $repo->find($id);
+
+
+		return $this->render('articles/achat.html.twig', compact('articles'));
+
+	}
+
 
 
 
